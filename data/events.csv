@@ -1,0 +1,6 @@
+event_id,event_name,date,venue,max_participants
+E001,Python Programming Workshop,2026-10-15,Seminar Hall A,50
+E002,Web Development Bootcamp,2026-10-18,Computer Lab 1,40
+E003,Annual Coding Contest,2026-10-22,Computer Lab 2,60
+E004,AI and Machine Learning Seminar,2026-10-25,Auditorium,100
+E005,Campus Sports Day,2026-10-30,University Ground,150

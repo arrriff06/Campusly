@@ -1,0 +1,21 @@
+student_id,event_id,rating,comment
+S001,E001,5,Very useful workshop
+S002,E001,4,Good practical examples
+S003,E001,5,Excellent session
+S004,E001,4,Helpful and informative
+S005,E002,4,Good bootcamp
+S006,E002,5,Very well organized
+S007,E002,3,Good but needed more time
+S008,E003,5,Excellent coding contest
+S009,E003,4,Interesting problems
+S010,E003,5,Really enjoyable
+S011,E003,4,Good competition
+S012,E003,5,Great experience
+S001,E004,5,Very informative seminar
+S004,E004,4,Good introduction to AI
+S006,E004,5,Excellent speakers
+S009,E004,4,Useful seminar
+S002,E005,4,Fun sports day
+S003,E005,5,Very enjoyable
+S007,E005,4,Well organized event
+S010,E005,5,Great experience
