@@ -1,1 +1,81 @@
-{% extends 'base.html' %}{% block heading %}Analytics ◒{% endblock %}{% block content %}<div class="intro"><small>DATA INSIGHTS</small><h2>See what your events are saying</h2><p>Python, Pandas and NumPy turn your CSV data into useful insights.</p></div><div class="analytics"><div class="panel analysis"><span>Overall rating</span><strong>{{overall}} / 5</strong><span>Based on feedback</span></div><div class="panel analysis"><span>Total registrations</span><strong>{{stats.registrations}}</strong><span>Across all events</span></div><div class="panel analysis"><span>Total feedback</span><strong>{{stats.feedback}}</strong><span>Participant responses</span></div></div><div class="charts"><div class="panel"><h3>Average rating by event</h3>{% for name,r in names|zip(ratings) %}<div class="row"><span>{{name}}</span><div class="bar"><i style="width:{{r*20}}%"></i></div><b>{{r}}</b></div>{% endfor %}</div><div class="panel"><h3>Participation by event</h3>{% for name,n in names|zip(parts) %}<div class="row"><span>{{name}}</span><div class="bar"><i style="width:{{(n/(stats.registrations if stats.registrations else 1))*100}}%;background:#d58c70"></i></div><b>{{n}}</b></div>{% endfor %}</div></div>{% endblock %}
+{% extends 'base.html' %}
+
+{% block heading %}Analytics ◒{% endblock %}
+
+{% block content %}
+
+<div class="intro">
+    <small>DATA INSIGHTS</small>
+    <h2>See what your events are saying</h2>
+    <p>Python, Pandas and NumPy turn your CSV data into useful insights.</p>
+</div>
+
+<div class="analytics">
+
+    <div class="panel analysis">
+        <span>Overall rating</span>
+        <strong>{{ overall }} / 5</strong>
+        <span>Based on feedback</span>
+    </div>
+
+    <div class="panel analysis">
+        <span>Total registrations</span>
+        <strong>{{ stats.registrations }}</strong>
+        <span>Across all events</span>
+    </div>
+
+    <div class="panel analysis">
+        <span>Total feedback</span>
+        <strong>{{ stats.feedback }}</strong>
+        <span>Participant responses</span>
+    </div>
+
+</div>
+
+<div class="charts">
+
+    <div class="panel">
+        <h3>Average rating by event</h3>
+
+        {% for i in range(names|length) %}
+            {% set name = names[i] %}
+            {% set r = ratings[i] %}
+
+            <div class="row">
+                <span>{{ name }}</span>
+
+                <div class="bar">
+                    <i style="width: {{ r * 20 }}%"></i>
+                </div>
+
+                <b>{{ r }}</b>
+            </div>
+        {% else %}
+            <p>No events available yet.</p>
+        {% endfor %}
+    </div>
+
+    <div class="panel">
+        <h3>Participation by event</h3>
+
+        {% for i in range(names|length) %}
+            {% set name = names[i] %}
+            {% set n = parts[i] %}
+
+            <div class="row">
+                <span>{{ name }}</span>
+
+                <div class="bar">
+                    <i style="width: {{ (n / (stats.registrations if stats.registrations else 1)) * 100 }}%; background: #d58c70"></i>
+                </div>
+
+                <b>{{ n }}</b>
+            </div>
+        {% else %}
+            <p>No event registrations available yet.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
